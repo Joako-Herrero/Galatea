@@ -1,0 +1,19 @@
+.search-bar {
+    position:absolute;
+    right:2vw;
+}
+
+
+.logo-nav{
+    width: 1.6cm;
+    height: 2.2cm;
+    margin-left:.5vw;
+}
+
+.elemento {
+    display: none;
+}
+
+#show-less-btn{
+    display: none;
+}
