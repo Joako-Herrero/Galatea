@@ -3,6 +3,10 @@
     right:2vw;
 }
 
+.banner{
+    background-image: url(../images/fashion-banner-alternative.jpg);
+    background-position: center;
+}
 
 .logo-nav{
     width: 1.6cm;

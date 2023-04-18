@@ -3,6 +3,11 @@
     right:2vw;
 }
 
+.banner{
+    background-image: url(../images/history-banner.jpg);
+    background-size: cover;
+    background-position: center;
+}
 
 .logo-nav{
     width: 1.6cm;

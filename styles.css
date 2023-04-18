@@ -10,7 +10,12 @@
     margin-left:.5vw;
 }
 
-.banner{
+/*.banner{
     background-image: url(./categories/images/imagen4.jpg);
+}*/
+
+.banner{
+    background-image: url(./categories/images/banner.jpg);
+    background-position: center;
 }
 

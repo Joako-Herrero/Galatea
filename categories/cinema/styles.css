@@ -3,6 +3,11 @@
     right:2vw;
 }
 
+.banner{
+    background-image: url(../images/cinema-banner.jpg);
+    background-position: center;
+    background-size: cover;
+}
 
 .logo-nav{
     width: 1.6cm;

@@ -3,6 +3,10 @@
     right:2vw;
 }
 
+.banner{
+    background-image: url(../images/art-banner.jpg);
+    background-size: cover;
+}
 
 .logo-nav{
     width: 1.6cm;
