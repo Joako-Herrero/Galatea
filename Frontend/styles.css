@@ -1,0 +1,74 @@
+.logo-nav{
+    width: 1.6cm;
+    height: 2.2cm;
+    margin-left:.5vw;
+}
+
+
+/*.banner{
+    background-image: url(./categories/images/imagen4.jpg);
+}*/
+
+.logo-nav {
+    display: block; /* Asegura que la imagen sea un elemento de bloque */
+    margin: 0 auto 0 0; /* Establece margen automático en los lados para centrar horizontalmente */
+}
+
+.banner{
+    background-image: url(./categories/images/banner.jpg);
+    background-position: center;
+    
+}
+
+
+/*LOGIN*/
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+}
+
+.col-xl-10 {
+    flex: 1;
+}
+
+
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-outline {
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+
+
+.form-label {
+    
+   
+    font-size: 1.5rem;
+   
+
+
+}
+
+
