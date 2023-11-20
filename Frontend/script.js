@@ -60,3 +60,47 @@ loginBtn.addEventListener('click', () => {
       console.error('Error al realizar la solicitud:', error);
     });
 });
+
+var registerBtn = document.getElementById('btnRegister');
+registerBtn.addEventListener('click', () => {
+  console.log("ejecuta")
+  // Obtener los valores del formulario
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+  let name = document.getElementById("name").value;
+  let role = document.getElementById("role").value;
+  // URL de la API REST
+  let apiUrl = 'https://galatea-backend.onrender.com/auth/register'; // Reemplaza con la URL de tu API
+
+
+  // Datos a enviar en la solicitud POST
+  let data = {
+    "name":name,
+    "email":email,
+    "username": username,
+    "password": password,
+    "role":role
+  };
+
+  // Configuración de la solicitud
+  let requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+
+  // Realizar la solicitud POST
+  fetch(apiUrl, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      // Manejar la respuesta de la API
+      console.log('Respuesta de la API:', data);
+    })
+    .catch(error => {
+      // Manejar errores
+      console.error('Error al realizar la solicitud:', error);
+    });
+});

@@ -1,0 +1,16 @@
+.logo-nav{
+    width: 1.6cm;
+    height: 2.2cm;
+    margin-left:.5vw;
+}
+
+.banner{
+    background-image: url(../images/doris-banner.webp);
+    background-position: center;
+    background-size: cover;
+}
+
+.article-img{
+    margin-bottom: 2rem;
+}
+

@@ -1,0 +1,10 @@
+.logo-nav{
+    width: 1.6cm;
+    height: 2.2cm;
+    margin-left:.5vw;
+}
+
+.banner{
+    background-image: url(./categories/images/banner.jpg);
+    background-position: center;
+}

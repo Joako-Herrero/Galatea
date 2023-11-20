@@ -1,0 +1,18 @@
+.banner{
+    background-image: url(../images/fashion-banner-alternative.jpg);
+    background-position: center;
+}
+
+.logo-nav{
+    width: 1.6cm;
+    height: 2.2cm;
+    margin-left:.5vw;
+}
+
+.elemento {
+    display: none;
+}
+
+#show-less-btn{
+    display: none;
+}
