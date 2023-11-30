@@ -57,10 +57,13 @@ if(loginBtn){
       .then(data => {
         // Manejar la respuesta de la API
         console.log('Respuesta de la API:', data);
+        console.log("funca")
       })
       .catch(error => {
         // Manejar errores
         console.error('Error al realizar la solicitud:', error);
+        console.log("no funca")
+        
       });
   });
 };
