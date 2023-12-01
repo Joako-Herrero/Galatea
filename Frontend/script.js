@@ -33,7 +33,7 @@ if(loginBtn){
     let password = document.getElementById("password").value;
 
     // URL de la API REST
-    let apiUrl = 'proyecto-final-backend-production-12ea.up.railway.app/auth/login'; // Reemplaza con la URL de tu API
+    let apiUrl = 'https://galatea-backend.onrender.com/auth/login'; // Reemplaza con la URL de tu API
 
 
     // Datos a enviar en la solicitud POST
@@ -80,7 +80,7 @@ if(registerBtn){
     let role = document.getElementById("role").value;
     console.log(role)
     // URL de la API REST
-    let apiUrl = 'http://localhost:8080/auth/register'; // Reemplaza con la URL de tu API
+    let apiUrl = 'https://galatea-backend.onrender.com/auth/register'; // Reemplaza con la URL de tu API
 
 
     // Datos a enviar en la solicitud POST
