@@ -1,51 +1,4 @@
-// Agregar un evento de clic al botón de carga
-var loadButton = document.getElementById('save-button');
-if(loadButton){
-  loadButton.addEventListener('click', () => {
-    var markupStr = $('#summernote').summernote('code');
-    var title=document.getElementById("title");
-    var date=document.getElementById("fechaInput");
-    var banner=document.getElementById("banner");
-    var minititle=document.getElementById("minititle");
-    var miniature=document.getElementById("miniature");
-    var sinopsis=document.getElementById("sinopsis");
-
-    let apiUrl = 'https://galatea-backend.onrender.com/articulo/create';
-    
-    let data = {
-        "title":title,
-        "date":date,
-        "banner":banner,
-        "minititle":minititle,
-        "miniature":miniature,
-        "sinopsis":sinopsis,
-        "html":markupStr
-    };
-    console.log(data)
-    let requestOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    };
-    fetch(apiUrl, requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        // Manejar la respuesta de la API
-        console.log('Respuesta de la API:', data);
-
-      })
-      .catch(error => {
-       
-        console.error('Error al realizar la solicitud:', error);
-        console.log("no funca")
-        
-      });
-    console.log(markupStr);
-  });
-};
-
+const worker = new Worker('jwtWorker.js');
 
 
 $(document).ready(function () {
@@ -96,7 +49,7 @@ if(loginBtn){
       .then(data => {
         // Manejar la respuesta de la API
         console.log('Respuesta de la API:', data);
-        document.cookie = `token=${data.token}; Secure; HttpOnly; SameSite=Strict`;
+        worker.postMessage({ type: 'SET_TOKEN', token: data.token });
         window.location.href = 'index.html';
       })
       .catch(error => {
@@ -108,6 +61,57 @@ if(loginBtn){
   });
 };
 
+var loadButton = document.getElementById('save-button');
+if(loadButton){
+  loadButton.addEventListener('click', () => {
+    var markupStr = $('#summernote').summernote('code');
+    var title=document.getElementById("title");
+    var date=document.getElementById("fechaInput");
+    var banner=document.getElementById("banner");
+    var minititle=document.getElementById("minititle");
+    var miniature=document.getElementById("miniature");
+    var sinopsis=document.getElementById("sinopsis");
 
+    let apiUrl = 'https://galatea-backend.onrender.com/articulo/create';
+    
+    let data = {
+        "title":title,
+        "date":date,
+        "banner":banner,
+        "minititle":minititle,
+        "miniature":miniature,
+        "sinopsis":sinopsis,
+        "html":markupStr
+    };
+    worker.postMessage({ type: 'GET_TOKEN' });
+    console.log("ejectu antes if");
+    // Escuchar la respuesta del worker
+    worker.addEventListener('message', (event) => {
+      if (event.data.type === 'TOKEN') {
+        const token = event.data.token;
 
+        let requestOptions = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(data)
+        };
+        console.log("ejectu");
+        fetch(apiUrl, requestOptions)
+          .then(response => response.json())
+          .then(data => {
+            // Manejar la respuesta de la API
+            console.log('Respuesta de la API:', data);
 
+          })
+          .catch(error => {
+          
+            console.error('Error al realizar la solicitud:', error);
+            console.log("no funca")
+            
+          });
+    };
+  });
+})};
