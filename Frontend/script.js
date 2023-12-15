@@ -1,4 +1,5 @@
-const worker = new Worker('jwtWorker.js');
+
+
 
 
 $(document).ready(function () {
@@ -15,12 +16,12 @@ $(document).ready(function () {
 // JavaScript con la función para realizar la solicitud POST
 var loginBtn = document.getElementById('btnLogin');
 
-if(loginBtn){
+if (loginBtn) {
 
 
   loginBtn.addEventListener('click', () => {
     console.log("ejecuta")
-    
+
     // Obtener los valores del formulario
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -49,8 +50,13 @@ if(loginBtn){
       .then(data => {
         // Manejar la respuesta de la API
         console.log('Respuesta de la API:', data);
-        worker.postMessage({ type: 'SET_TOKEN', token: data.token });
-        window.location.href = 'index.html';
+        const token = data.token;
+        localStorage.setItem('jwtToken', token);
+        
+
+        setTimeout( ()=>{
+          window.location.href = 'index.html';
+        },7000)
       })
       .catch(error => {
         // Manejar errores
@@ -61,57 +67,59 @@ if(loginBtn){
   });
 };
 
+
+
 var loadButton = document.getElementById('save-button');
-if(loadButton){
+if (loadButton) {
   loadButton.addEventListener('click', () => {
+
     var markupStr = $('#summernote').summernote('code');
-    var title=document.getElementById("title");
-    var date=document.getElementById("fechaInput");
-    var banner=document.getElementById("banner");
-    var minititle=document.getElementById("minititle");
-    var miniature=document.getElementById("miniature");
-    var sinopsis=document.getElementById("sinopsis");
+    var title = document.getElementById("title").value;
+    var date = document.getElementById("fechaInput").value;
+    var banner = document.getElementById("banner").value;
+    var minititle = document.getElementById("minititle").value;
+    var miniature = document.getElementById("miniature").value;
+    var sinopsis = document.getElementById("sinopsis").value;
 
     let apiUrl = 'https://galatea-backend.onrender.com/articulo/create';
-    
+
     let data = {
-        "title":title,
-        "date":date,
-        "banner":banner,
-        "minititle":minititle,
-        "miniature":miniature,
-        "sinopsis":sinopsis,
-        "html":markupStr
+      "title": title,
+      "date": date,
+      "banner": banner,
+      "miniTitle": minititle,
+      "miniature": miniature,
+      "sinopsis": sinopsis,
+      "html": markupStr
     };
-    worker.postMessage({ type: 'GET_TOKEN' });
-    console.log("ejectu antes if");
-    // Escuchar la respuesta del worker
-    worker.addEventListener('message', (event) => {
-      if (event.data.type === 'TOKEN') {
-        const token = event.data.token;
-
-        let requestOptions = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(data)
-        };
-        console.log("ejectu");
-        fetch(apiUrl, requestOptions)
-          .then(response => response.json())
-          .then(data => {
-            // Manejar la respuesta de la API
-            console.log('Respuesta de la API:', data);
-
-          })
-          .catch(error => {
-          
-            console.error('Error al realizar la solicitud:', error);
-            console.log("no funca")
-            
-          });
+    
+    const token = localStorage.getItem('jwtToken');
+    console.log(token)
+    let requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(data)
     };
-  });
-})};
+
+
+    fetch(apiUrl, requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        // Manejar la respuesta de la API
+        console.log('Respuesta de la API:', data);
+
+      })
+      .catch(error => {
+
+        console.error('Error al realizar la solicitud:', error);
+        console.log("no funca")
+
+      });
+   
+     
+    
+  })
+};
