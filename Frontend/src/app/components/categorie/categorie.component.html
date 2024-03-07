@@ -1,0 +1,121 @@
+<div class="container" >
+  
+  <div  class="p-4 p-md-5 mb-4 rounded card banner skeleton-banner" *ngIf="!isLoaded">
+    <div class="col-md-6 px-0 ">
+      <h1 class="display-4 fst-italic skeleton-text-title">
+        
+      </h1>
+      <p class="skeleton-banner-text"></p>
+      <p class="skeleton-banner-mini-text"></p>
+      <p class="skeleton-banner-text"></p>
+      <p class="skeleton-banner-mini-text"></p>
+
+      <p class="skeleton-banner-small-text"></p>
+    </div>
+  </div>
+  
+  <div class="row mb-2" *ngIf="!isLoaded">
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+   
+    
+   
+  </div>
+
+  <div  class="p-4 p-md-5 mb-4 rounded text-bg-dark banner" [ngStyle]="{'background-image': 'url(' + categorie.banner + ')'}" *ngIf="isLoaded">
+    <div class="col-md-6 px-0" [innerHTML]="categorie.html">
+      <h1 class="display-4 fst-italic ">
+        {{categorie.title}}
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="row mb-2" id="articulos">
+    <div *ngFor="let article of articles" class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{ article.miniTitle }}</h3>
+          <strong class="d-inline-block mb-2 text-primary">{{ article.categorie }}</strong>
+          <div class="mb-1 text-body-secondary">{{ article.date | date:'longDate' }}</div>
+          <p class="card-text mb-auto">{{ article.sinopsis }}</p>
+          <a class="stretched-link" [href]="'/reading/' + article.id">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img img-fluid" [src]="article.miniature" width="200" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <button id="show-more-btn" class="btn btn-primary">Show More</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <button id="show-less-btn" class="btn btn-primary">Show Less</button>
+    </div>
+  </div>
+
+</div>

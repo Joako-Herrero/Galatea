@@ -1,0 +1,38 @@
+<div class="container" >
+  <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+    <label for="title">Title:</label>
+    <input class="m-1" type="text" text="title" id="title" placeholder="Title" [(ngModel)]="title" requiered name="title">
+    
+    <label for="fechaInput">Date:</label>
+    <input class="m-1" type="date" id="fechaInput" text="date" placeholder="Date" requiered [(ngModel)]="date" name="date"><br>
+
+    <label for="banner" >Banner(Link):</label>
+    <input class="m-1" type="text" id="banner" text="banner" placeholder="www.example.com/img.jpg" requiered [(ngModel)]="banner" name="banenr"><br>
+
+    <label for="minititle">MiniTitle:</label>
+    <input class="m-1" type="text" id="minititle"text="MiniatureTitle" placeholder="Title for the miniature" requiered [(ngModel)]="miniTitle" name="minititle"><br>
+
+    <label for="Miniature">Miniature(Link):</label>
+    <input class="m-1 " type="text" id="miniature" text="Miniature" placeholder="www.example.com/img.jpg" requiered [(ngModel)]="miniature" name="miniature"><br>
+
+    <label for="categorie">Categorie:</label>
+    <select class="m-1 mb-3" name="categorie" id="categorie-select"  requiered [(ngModel)]="categorie">
+      <option value="Art">Art</option>
+      <option value="Cinema">Cinema</option>
+      <option value="History">History</option>
+      <option value="Fashion">Fashion</option>
+      <option value="Literature">Literature</option>
+      <option value="Photography">Photography</option>
+    
+    </select>
+
+    <textarea type="text" class="m-1 mb-3" id="sinopsis" text="sinopsis" placeholder="Sinopsis" requiered [(ngModel)]="sinopsis" name="sinopsis"></textarea>
+    
+    <summernote  [ngxSummernote]="summernoteOptions" [(ngModel)]="html" name="html"></summernote>
+    
+    
+    <button type="submit" class="mt-4" id="save-button" >Submit</button>
+    
+  </form>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container"  *ngIf="article">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <input type="text" text="title" id="title" placeholder="Title" [(ngModel)]="article.title" requiered name="title">
+      <input type="date" id="fechaInput" text="date" placeholder="Date" requiered [(ngModel)]="article.date" name="date"><br>
+      <label for="banner" >Banner(Link):</label>
+      <input type="text" id="banner" text="banner" requiered [(ngModel)]="article.banner" name="banner"><br>
+      <input type="text" id="minititle"text="MiniatureTitle" placeholder="Title for the miniature" requiered [(ngModel)]="article.miniTitle" name="minititle"><br>
+      <label for="Miniature">Miniature(Link):</label>
+      <input type="text" id="miniature" text="Miniature" requiered [(ngModel)]="article.miniature" name="miniature"><br>
+  
+      <select name="categories" id="categorie-select" requiered [(ngModel)]="article.categorie" name="categorie">
+        <option value="Art">Art</option>
+        <option value="Cinema">Cinema</option>
+        <option value="History">History</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Literature">Literature</option>
+        <option value="Photography">Photography</option>
+      
+      </select>
+  
+      <textarea type="text" id="sinopsis" text="sinopsis" placeholder="Sinopsis" requiered [(ngModel)]="article.sinopsis" name="sinopsis"></textarea>
+      
+      <ngx-summernote class="" [ngxSummernote]="summernoteOptions" [(ngModel)]="article.html" name="html"></ngx-summernote>
+    
+      
+      <button type="submit" id="save-button" >Submit</button>
+      
+    </form>
+  
+</div>
+  

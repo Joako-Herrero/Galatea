@@ -1,0 +1,159 @@
+<main class="container">
+  
+  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark banner ">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Galatea, a website for courious.</h1>
+      <p class="lead my-3 banner-paragraph">Explore the beauty and charm of fashion, history, cinema, music, and much
+        more on our general interest website, with original and exciting content for all tastes.</p>
+      
+    </div>
+  </div>
+
+  <div class="row mb-2" *ngIf="!isLoaded">
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="card flex-md-row overflow-hidden mb-4 box-shadow h-md-250 ">
+        <div class="card-body d-flex flex-column align-items-start skeleton-loading">
+          <strong class="d-inline-block mb-2 text-success skeleton-mini-text"></strong>
+          <h3 class="mb-0 skeleton-text">
+            
+          </h3>
+          <div class="mb-3 mt-2 text-muted skeleton-mini-text"></div>
+          <p class="card-text mb-2 skeleton-text"></p>
+          <p class="card-text mb-auto skeleton-small-text"></p>
+          <a href="#" class="skeleton-small-text"></a>
+        </div>
+        <div class="skeleton-image thumbnail d-md-block"></div>
+      </div>
+    </div>
+   
+    
+   
+  </div>
+
+  <div class="row mb-2" id="articulos">
+    <div *ngFor="let article of articles" class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{ article.miniTitle }}</h3>
+          <strong class="d-inline-block mb-2 text-primary">{{ article.categorie }}</strong>
+          <div class="mb-1 text-body-secondary">{{ article.date | date:'longDate' }}</div>
+          <p class="card-text mb-auto">{{ article.sinopsis }}</p>
+          <a class="stretched-link" [href]="'/reading/' + article.id">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img img-fluid" [src]="article.miniature" width="200" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+
+  <div class="row g-5">
+    <div class="col-md-8">
+
+
+      <article class="blog-post">
+        <h2 class="blog-post-title mb-1">Uncover a World of Fascinating Topics on Our General Interest Website - From
+        Fashion to History and Beyond</h2>
+        
+
+        <p>Discover a world of captivating content and engaging articles on our website covering a wide range of
+        topics, including fashion, cinema, history, music, and more.</p>
+        <hr>
+        <h2>Are you interested in exploring a diverse range of topics, from fashion and cinema to history and music?
+        </h2>
+        <p>Our website is a treasure trove of information, covering everything from an iconic outfit to little-known
+        historical facts and fascinating insights into the world of art and culture. We believe that knowledge is
+        power, and our articles are designed to inform and inspire our readers.</p>
+
+        <p>For fashion enthusiasts, we offer articles on the history of fashion, from the early days of haute couture
+        to the rise of streetwear and athleisure.</p>
+
+        <p>For history buffs, we offer articles on little-known historical facts, profiles of historical figures, and
+        explorations of key historical events. We believe that understanding the past is essential to shaping the
+        future, and our articles are designed to shed light on the people and events that have shaped our world.</p>
+
+        <p>we believe that knowledge is for everyone. Our articles are accessible and engaging, designed to inform and
+        entertain readers from all backgrounds and interests. Join us on a journey of discovery and exploration as
+        we uncover the wonders of the world around us. Down below you have all of our categories of content: </p>
+        <dl>
+        <dt><a href="../categorie/Cinema">Cinema</a></dt>
+        <dd>This category will focus on exploring the rich history of film and delving into the fascinating stories,
+            memories, and facts that have shaped this art form. From classic Hollywood films to lesser-known gems of
+            world cinema, we will explore the characters, themes, and stories that have captured the hearts and
+            imaginations of audiences throughout history.</dd>
+        <dt><a href="../categorie/History">History</a></dt>
+        <dd> This category is all about exploring human experiences and the world around us through personal
+            stories, memories, and interesting facts. From inspiring tales of triumph to haunting accounts of tragedy,
+            this category delves into the many facets of the human experience.</dd>
+        <dt><a href="../categorie/Art">Art</a></dt>
+        <dd>This category explores the vast and diverse world of art, including painting, sculpture, and other
+            visual arts. From classic masterpieces to contemporary works</dd>
+        <dt><a href="../categorie/Literature">Literature</a></dt>
+        <dd>This category is all about the written word, exploring the world of literature and the power of
+            storytelling. From classic novels to contemporary poetry</dd>
+        <dt><a href="../categorie/Fashion">Fashion</a></dt>
+        <dd>This category is dedicated to exploring the world of fashion, style and the importance of timeless
+            classics.</dd>
+        <dt><a href="../categorie/Photography">Photography</a></dt>
+        <dd>This category, we will take a closer look at each photo and explore the stories behind them, revealing
+            the emotions, events, and experiences that make each image so captivating.</dd>
+        </dl>
+
+      </article>
+
+    </div>
+
+
+
+
+  </div>
+
+</main>

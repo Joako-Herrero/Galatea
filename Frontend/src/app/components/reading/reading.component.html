@@ -1,0 +1,78 @@
+  <div class="container" *ngIf="!article">
+    
+    <div  class="p-4 p-md-5 mb-4 rounded card banner skeleton-banner" >
+      <div class="col-md-6 px-0 ">
+        <h1 class="display-4 fst-italic skeleton-text-title"></h1>
+        <h2 class="display-4 fst-italic skeleton-text"> </h2>
+      </div>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-8" >
+        
+        <p class="blog-post-meta skeleton-banner-mini-text"></p>
+        
+        <div class="article-skeleton">
+          <ul>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-mini-text"></li>
+          </ul>
+
+          <ul>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-mini-text"></li>
+          </ul>
+
+          <ul>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-small-text"></li>
+            <li class="skeleton-banner-mini-text"></li>
+          </ul>
+        </div>
+
+      </div>
+      
+      
+    </div>
+  </div>
+
+  <main class="container" *ngIf="article">
+  
+    <!--Titulo-->
+    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark banner" [ngStyle]="{'background-image': 'url(' + article.banner + ')'}">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic ">
+          {{article.title}}
+        </h1>
+      </div>
+    </div>
+    <div class="btn btn-info" *ngIf="isLogged" [routerLink]="'/edit/' + article.id">Edit</div>
+    <div class="btn btn-danger" *ngIf="isLogged" (click)="delete(article.id)">Delete</div>
+
+    <!--/////////////-->
+    <div class="row g-5">
+      <div class="col-md-8" >
+        
+        <p class="blog-post-meta">
+          {{ article.date | date:'longDate' }}
+        </p>
+        
+        <article class="blog-post" [innerHTML]="article.html">
+        
+        </article>
+
+      </div>
+
+      
+    </div>
+  </main>
